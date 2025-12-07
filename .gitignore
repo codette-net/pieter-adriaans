@@ -1,0 +1,13 @@
+.htaccess
+config.php
+smol.html
+media/images
+media/thumbnails
+media/factsheets
+media/qrcodes
+media/qrcards
+functions.php
+cleanup
+/vendor
+pieter_2025-12-07_16-02-47.sql
+  
