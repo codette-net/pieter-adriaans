@@ -360,10 +360,12 @@ template_admin_header('Sales Page', 'Sales Page')
                 <a href="media.php?id=<?= $m['id'] ?>&<?= http_build_query($get_params) ?>&salesPage=true" class="btn btn--edit">Edit</a>
                 <?php if ($_SESSION['role'] == 'admin') : ?>
                   <a class="btn btn--del" onclick="deleteMediaModal(<?= $m['id'] ?>, '<?= http_build_query($get_params) ?>')">Delete</a>
-                <?php endif;
-                if (!$m['approved']) : ?>
-                  <a href="sales.php?approve=<?= $m['id'] ?>" class="btn btn--edit">Approve</a>
                 <?php endif; ?>
+                <?php if ($_SESSION['role'] == 'admin') : ?>
+                 <!-- reset qr/factsheet -->
+                  <a class="btn btn--edit" onclick="resetQrFactsheet(<?= $m['id'] ?>, '<?= http_build_query($get_params) ?>')">Reset QR/Fact</a>
+                  <?php endif ?>
+                
               </td>
             </tr>
           <?php endforeach; ?>
@@ -504,6 +506,7 @@ template_admin_header('Sales Page', 'Sales Page')
 
 <script src="js/generateBusinessCard.js"></script>
 <script src="js/generateFactSheet.js"></script>
+<script src="js/resetQrFactsheet.js"></script>
 <script src="js/multimedia.js"></script>
 
 <script src="js/mediaCRUD.js"></script>
